@@ -1,1 +1,15 @@
-<p>product-card works!</p>
+<div class="d-flex flex-column align-items-center card-product">
+    <div class="section_photo">
+        <div>
+            <img class=" img-responsive product_photo" src="assets/products_images/{{product.image}}.jpg" alt="">
+        </div>
+        <span  *ngIf="product.type=== 'New'" class="type">{{product.type}}</span>
+    </div>
+
+    <div class="details">
+        <div class="d-flex flex-column align-items-center">
+            <span class="name_product">{{product.prodName}}</span>
+            <span class="price">{{product.price}}€</span>
+        </div>
+    </div>
+</div>
