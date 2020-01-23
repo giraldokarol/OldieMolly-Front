@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 
 
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     AuthentificationComponent,
-    ProfilComponent
+    ProfilComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
