@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { ProfilComponent } from './profil/profil.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,7 +19,8 @@ import { ProfilComponent } from './profil/profil.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
     
   ],
   providers: [],
