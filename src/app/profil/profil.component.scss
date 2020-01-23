@@ -14,6 +14,8 @@
                 list-style: none;
                 text-decoration: none;
                 margin-right: 110px;
+                cursor: pointer;
+                
                 &:last-child{
                     margin-right: 0;
                 }
@@ -34,6 +36,41 @@
     .principal_content{
         margin-top:50px;
 
+        //Default Page
+        .tittle{
+            color:$dark_gray;
+            font-weight: bold;
+            font-size:25px;
+            margin-left:20px;
+        }
+
+        .button_sell{
+            text-decoration: none;
+            color:white;
+            font-weight: bold;
+            font-size:13px;
+            padding: 10px 30px 10px 30px;
+            background-color: $red_color;
+            transition: background-color 0.5s ease;
+            border-radius: 5px;
+            margin-right:20px;
+
+            &:hover{
+                background-color: #d33c39;
+            }
+        }
+        .line{
+            color: $ligth_gray;
+            border-style: solid;
+            width: 40%;
+            margin-left: 20px;
+        }
+    }
+
+    //Category Content
+    .category_content{
+        margin-top:60px;
+        
         .tittle{
             color:$dark_gray;
             font-weight: bold;

@@ -13,14 +13,12 @@ import { Product } from '../entities/product.model';
 export class ProfilComponent implements OnInit {
   
   paramRoute:string;
-
+  
   //Service Category and Model
   categories: Category[];
-  firstCategory :string;
-  secondCategory :string;
-  thirdCategory :string;
-  fourthCategory :string;
-
+  nameCategory : string='';
+  idCategory :number;
+ 
   //Service Product and Model
   products: Product[];
 
@@ -33,18 +31,34 @@ export class ProfilComponent implements OnInit {
     //Get all Categories
     this.category.getAllCategories().subscribe(categories =>{
       this.categories = categories;
-      this.firstCategory= this.categories[0].nameCategory;
-      this.secondCategory= this.categories[1].nameCategory;
-      this.thirdCategory= this.categories[2].nameCategory;
-      this.fourthCategory= this.categories[3].nameCategory;
+      
     });
 
     //Get All Products
     this.product.getAllProducts().subscribe( products =>{
       this.products = products;
-      console.log(this.products);
+    });  
+  }
+
+  clickCategory(cat: string){
+    this.nameCategory=cat;
+    if(cat == this.categories[0].nameCategory){
+        this.idCategory = this.categories[0].idCategory;
+    } else if(cat == this.categories[1].nameCategory){
+        this.idCategory = this.categories[1].idCategory;
+    } else if(cat== this.categories[2].nameCategory){
+        this.idCategory = this.categories[2].idCategory;
+    } else if(cat== this.categories[3].nameCategory){
+        this.idCategory = this.categories[3].idCategory;
+    }
+    this.showProductsCategory(this.idCategory);
+   console.log(this.idCategory);
+  }
+
+  showProductsCategory(id: number){
+    this.category.getProductCategory(id).subscribe(products =>{
+      this.products = products;
     });
-    
   }
 
 }
