@@ -1,0 +1,109 @@
+@import "src/styles.scss";
+
+.nav-menu{
+    background-color:#fff;
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.034);
+    padding: 10px;
+    position:fixed;
+    width: 100vw;
+    z-index: 10;
+
+    .logo{
+        width: 50%;
+    }
+
+    //Menu Toggle
+    .toggle{
+        width: 5%;
+        padding:10px 20px;
+        color: $red_color;
+        font-size:30px;
+        //display: none;
+    }
+
+    .list-menu{
+        margin-top: 15px;
+        .nav-items{
+            margin-right: 20px;
+            list-style: none;
+
+            .item{
+                color: $red_color;
+                font-weight: bold;
+
+                &:hover{
+                    color:#d8403d;
+                    text-decoration: none;
+                }
+            }
+
+            .login_button{
+                transition: background-color 0.5s ease;
+                background-color: $beige_color;
+                padding: 10px 30px 10px 30px;   
+                border-radius: 5px;
+
+                &:hover{
+                    color:white;
+                    text-decoration: none;
+                    background-color: #eacd9d;
+                }
+            }
+
+            .sign_button{
+                transition: background-color 0.5s ease;
+                background-color: $yellow_color;
+                padding: 10px 30px 10px 30px;   
+                border-radius: 5px;
+                &:hover{
+                    color:white;
+                    text-decoration: none;
+                    background-color: #edb469;
+                }
+            }
+        }
+    }
+
+}
+
+//Medias Querys
+@media all and (max-width: 1024px){
+
+    .nav-menu{
+        position: relative;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+
+       
+            .logo{
+                width: 40%;
+                margin-top: 24px; 
+            }
+        
+        .box_menu{
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+        }
+        .list-menu{
+            flex-direction: column;
+            align-items: center;
+
+            .nav-items{
+                margin-bottom: 8px;
+            }
+
+            .resp_button{
+                margin-top:8px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+ }
+
+ 
+
+ 
+

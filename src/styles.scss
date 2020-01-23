@@ -1,0 +1,57 @@
+//Variables
+//Font
+$font-stack : 'Montserrat', sans-serif;
+//Primary Colors
+$red_color: #f25b50;
+$yellow_color : #f5c275;
+$orange_color : #f39d54;
+$beige_color : #f7ddac;
+$green-color : #96d4af;
+$dark_gray : #2b2b2b;
+$medium-gray : #b9b9b9;
+$ligth_gray : #f1f3f5;
+
+
+body{
+    margin:0;
+    font-family: $font-stack;
+}
+
+footer{
+    margin-top: 40px;
+    background-color: #f5eddf;
+    font-family: $font-stack;
+    padding:10px;
+
+    .text_owner{
+        color:$medium-gray;
+        font-weight: lighter;
+        font-size: 15px;
+        margin-left: 40px;
+    }
+
+    .logo_footer{
+        position: absolute;
+        right: 0;
+        margin-top: -20px;
+        width: 200px;
+        margin-right: 40px;
+    }
+}
+
+
+//Media Query
+@media all and (max-width:480px){
+    footer{
+        padding: 20px;
+        .text_owner{
+            display: none;
+        }
+        .logo_footer{
+            width: 140px;
+            margin-top: -30px;
+            right: 70px;
+        }
+    }
+
+}

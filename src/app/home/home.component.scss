@@ -1,0 +1,277 @@
+@import "src/styles.scss";
+
+//Header
+.header{
+    background-image: url(../../assets/principal_banner.png);
+    background-size: cover;
+    height: 100vh;
+        .con_header{
+            margin-bottom: 50px;
+            .button_header{      
+                text-decoration: none;
+                color: white;
+                transition: background-color 0.5s ease;
+                background-color: $orange_color;
+                font-weight: bold;
+                padding: 10px 30px 10px 30px;   
+                border-radius: 5px;
+                
+                &:hover{
+                    background-color: #db813e;
+                }
+            }
+         }
+    
+}
+
+//How it works
+
+.description{
+    margin-top:50px;
+        .icon_ilus{
+           width: 50%;
+        } 
+}
+
+.tittle{
+    text-align: center;
+    color: $red_color;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.subtittle{
+    text-align: center;
+    margin-top:20px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.text{
+    width: 50%;
+    text-align: center;
+}
+
+.margin_ex{
+    margin-top: 45px;
+}
+
+.margin_exep{
+    margin-top: 85px;
+}
+
+//Some our products
+.products{
+    margin-top:80px;
+    background-image: url(../../assets/banner_bg_home.png);
+    background-size: cover;
+    padding: 40px;
+
+    .card-product{
+        margin-right: 40px;
+        background-color: white;
+        border-radius: 3px;
+        margin-top:30px;
+        margin-bottom: 10px;
+    }
+}
+
+
+.photo_section{
+    position: relative;
+
+    .type{
+        position: absolute;
+        color: white;
+        font-weight: bold;
+        font-size: small;
+        background-color: $red_color;
+        padding: 5px 10px;
+        margin-top:30px;
+        margin-left: 20px;
+        text-align: center;
+    }
+
+    .box_photo{
+        width: 200px;
+        
+        .photo_product{
+            border-radius: 15px;
+            margin-top: 10px;
+            margin-bottom: 8px ;
+            max-width: 100%;
+            max-height: 100%;
+            padding: 10px;    
+        }
+    }
+}
+
+.details{
+    margin-bottom: 10px;
+    .name{
+        display: block;
+        color:$dark_gray;
+        font-weight: bolder;
+        text-align: center;
+    }
+    .price{
+        color:$red_color;
+        font-weight: bolder;
+        font-size:20px;
+        text-align: center;
+    }
+}
+
+//Call to action Join Us
+.call_action{
+    background-color: $red_color;
+    color:white;
+    .invitation{
+        padding: 40px 0 0 0;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .button_action{
+        margin-top:20px;
+        margin-bottom:40px;
+        padding: 10px 50px 10px 50px;  
+        text-align: center;
+        background-color: $orange_color;
+        transition: background-color 0.5s ease;
+        border-radius: 5px;
+        color:white;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover{
+            background-color: #ea8c47;
+        }
+    }
+}
+
+//Who we are
+.about{
+    margin-top:80px;
+}
+
+.about_image{
+    width:400px;
+    margin-right: 50px;
+}
+.text_about{
+    width: 30%;
+    margin-top: 80px;
+}
+
+
+//Medias Querys
+@media all and (max-width: 1024px){
+   .header{
+       background-position-x: center;
+   }
+}
+
+@media all and (min-width: 1024px){
+    .header{
+        background-position-x: center;
+    }
+ }
+
+ @media all and (max-width: 680px){
+  .header{
+      height: 500px;
+  }
+
+  .images_works{
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      .items{
+          justify-content: center;
+          align-items: center;
+          align-content: center;
+
+          .icon_ilus{
+            align-items: center;
+            align-content: center;
+            justify-content: center;  
+          }
+      }
+  }
+
+  .margin_exep{
+      margin-top: 30px;
+  }
+
+  .content_product{
+   flex-wrap: wrap;
+   margin-left:70px;
+    .card-product{
+        margin-right: 80px;
+        .box_photo{
+            width:400px;
+            .photo_product{
+                padding: 20px;
+            }
+        }
+
+        .type{
+            margin-top: 50px;
+            margin-left: 40px;
+        }
+        
+    }
+  }
+
+  .about_image{
+      margin-left: 50px;
+  }
+  .text_about{
+      width: 80%;
+      text-align: center;
+  }
+
+
+}
+
+@media all and (max-width:480px){
+    .header{
+        height: 300px;
+    }
+
+    .content_product{
+        flex-wrap: wrap;
+        margin-left:70px;
+         .card-product{
+             margin-right: 80px;
+             .box_photo{
+                 width:250px;
+                 .photo_product{
+                     padding: 20px;
+                 }
+             }
+     
+             .type{
+                 margin-top: 40px;
+                 margin-left: 30px;
+             }
+             
+         }
+    }
+
+    .about_image{
+        width: 230px;
+        margin-top:20px;
+    }
+
+
+}
+
+
+
+
+
+
