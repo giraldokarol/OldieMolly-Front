@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,20 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.scss']
 })
-export class AuthentificationComponent implements OnInit {
+export class AuthentificationComponent implements OnInit, DoCheck {
 
   param:string;
   finalParam:string;
   
   constructor(private route : ActivatedRoute) { 
-  
+    this.param=this.route.snapshot.params['id'];
     }
 
-
   ngOnInit() {
-    this.param=this.route.snapshot.params['id'];
-    console.log(this.param);
   }
+
+  ngDoCheck() {
+    this.param=this.route.snapshot.params['id'];
+  } 
 
 
 }

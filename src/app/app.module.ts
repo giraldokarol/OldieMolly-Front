@@ -8,7 +8,6 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
-import { CategoryComponent } from './category/category.component';
 
 
 
@@ -18,8 +17,7 @@ import { CategoryComponent } from './category/category.component';
     HomeComponent,
     AuthentificationComponent,
     ProfilComponent,
-    ProductCardComponent,
-    CategoryComponent
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
