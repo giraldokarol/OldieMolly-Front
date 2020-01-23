@@ -1,0 +1,32 @@
+@import "src/styles.scss";
+
+
+    .submenu{
+        margin-top:70px;
+        background-color: $yellow_color;
+        width: 100%;
+        padding: 5px;
+
+        .list_submenu{
+            margin-top:20px;
+            
+            .item{
+                list-style: none;
+                text-decoration: none;
+                margin-right: 110px;
+                &:last-child{
+                    margin-right: 0;
+                }
+
+                .link{
+                    color:white;
+                    font-weight: bold;
+                    font-size: 13px;
+                    text-decoration: none;
+                    &:hover{
+                        color:$red_color;
+                    }
+                }
+            }
+        }
+    }    

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -12,11 +13,12 @@ import { AuthentificationComponent } from './authentification/authentification.c
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthentificationComponent
+    AuthentificationComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule
     
   ],
   providers: [],
