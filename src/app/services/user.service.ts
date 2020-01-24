@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-
+  proxyurl = "https://cors-anywhere.herokuapp.com/";
   baseUrl:string="https://oldie-molly.herokuapp.com/user";
 
   constructor(private http: HttpClient) { }
 
   createUser(user: User):Observable<User>{
-      return this.http.post<User>(this.baseUrl+'/create_user.php', user);
+      return this.http.post<User>(this.proxyurl + this.baseUrl+'/create_user.php', user);
   }
 }

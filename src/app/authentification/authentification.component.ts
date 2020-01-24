@@ -1,6 +1,6 @@
 import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../entities/user.model';
 import { UserService } from '../services/user.service';
 
@@ -25,7 +25,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   //Object User
   user: User;
   
-  constructor(private route : ActivatedRoute, private u : UserService ) { 
+  constructor(private router : Router, private route : ActivatedRoute, private u : UserService ) { 
     this.param=this.route.snapshot.params['id'];
     }
 
@@ -48,7 +48,9 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                   "address":this.address
                  };
                 console.log(this.user);
-                this.u.createUser(this.user).subscribe();
+                this.u.createUser(this.user).subscribe().add(() => {
+                  this.router.navigate(['/profil/'+this.name]);
+                });
               }
     }else{
       console.log("no se pudo");
