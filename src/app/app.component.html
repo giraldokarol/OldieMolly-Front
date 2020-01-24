@@ -1,4 +1,4 @@
-<nav class="nav-menu d-flex justify-content-center">
+<nav *ngIf="message ===''" class="nav-menu d-flex justify-content-center">
   <div class=" box_menu d-flex justify-content-center align-items-center">
     <a href="#" class="d-flex justify-content-center"><img src="assets/logo.png" class="logo" alt="Oldie Molly-Logo"></a>
       <ul class="d-flex list-menu">
@@ -9,6 +9,17 @@
       </ul>
   </div>
 </nav>
+
+<nav *ngIf="message ==='login'" class="nav-menu d-flex justify-content-center">
+    <div class=" box_menu d-flex justify-content-center align-items-center">
+      <a routerLink="/profile/{{username}}" class="d-flex justify-content-center"><img src="assets/logo.png" class="logo img-fluid" alt="Oldie Molly-Logo"></a>
+       <ul class ="d-flex options_menu">
+         <li class="option"><span class="username"> Hi {{username}}!</span></li>
+         <li class="option"><a class="button_order">My Orders</a></li>
+         <li class="option"><a class="exit_icon" ><img class="img-fluid img_exit" src="assets/exit_icon.png" alt="Exit Icon/Logout"></a></li>
+       </ul>
+    </div>
+  </nav>
 
 <div>
 <router-outlet></router-outlet>

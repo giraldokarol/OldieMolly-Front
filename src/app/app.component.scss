@@ -9,7 +9,7 @@
     z-index: 10;
 
     .logo{
-        width: 50%;
+        width: 250px;
     }
 
     //Menu Toggle
@@ -23,6 +23,7 @@
 
     .list-menu{
         margin-top: 15px;
+        margin-left: 50px;
         .nav-items{
             margin-right: 20px;
             list-style: none;
@@ -64,7 +65,55 @@
         }
     }
 
+    .options_menu{
+       margin-left: 50px;
+       margin-top: 10px;
+        .option{
+           text-decoration: none;
+           list-style: none;
+           margin-right: 20px;
+            .username{
+                color:$red_color;
+                font-weight: bold;
+                font-size: 14px;
+            }
+    
+            .button_order{
+                color:$red_color;
+                font-size:13px;
+                font-weight: bold;
+                transition: background-color 0.5s ease;
+                background-color:$yellow_color;
+                padding: 10px 20px 10px 20px;  
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color:#edb469;
+                }
+            }
+
+            .exit_icon{           
+                cursor: pointer;
+                &:hover{
+                    .img_exit{
+                    transform: scale(.95);
+                    transition: transform 1s;
+                   }     
+                }
+                
+                .img_exit{
+                    transition: transform 1s;
+                    height: 25px;
+               }
+                
+            }
+        }
+    }
+
 }
+
+
 
 //Medias Querys
 @media all and (max-width: 1024px){

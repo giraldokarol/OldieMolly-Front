@@ -20,12 +20,12 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   
   //Variables Form
   name:string;
-  email:string;
   incomplete:boolean=false;
   message:string;
- 
+
   //Form Validator
   registerForm : FormGroup;
+
   //Object User
   user: User;
   
@@ -67,8 +67,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 this.name = this.registerForm.controls['name'].value;
                 console.log(this.name);
                 this.u.createUser(this.user).subscribe().add(() => {
-                  this.router.navigate(['/profil/'+this.name]);
-
+                  this.router.navigate(['/profile/'+this.name]);
                   // Add a cookie Saving email and Name
                   this.cookie.set("email", this.registerForm.controls['email'].value);
                   this.cookie.set("name", this.registerForm.controls['name'].value);
