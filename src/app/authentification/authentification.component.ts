@@ -3,8 +3,9 @@ import { AppComponent } from '../app.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../entities/user.model';
 import { UserService } from '../services/user.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
+
 
 
 
@@ -29,7 +30,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   user: User;
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
-                private formBuilder :FormBuilder ) { 
+                private formBuilder :FormBuilder, private cookie: CookieService ) { 
     this.param=this.route.snapshot.params['id'];
     }
 
@@ -67,6 +68,10 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 console.log(this.name);
                 this.u.createUser(this.user).subscribe().add(() => {
                   this.router.navigate(['/profil/'+this.name]);
+
+                  // Add a cookie Saving email and Name
+                  this.cookie.set("email", this.registerForm.controls['email'].value);
+                  this.cookie.set("name", this.registerForm.controls['name'].value);
                 });
                 this.incomplete=false;
                 this.message = "Your account was created."

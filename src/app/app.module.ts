@@ -8,6 +8,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -27,7 +28,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [ CookieService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
