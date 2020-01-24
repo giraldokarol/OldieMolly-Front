@@ -12,16 +12,26 @@
     <div *ngIf="param==='signup'" class=" d-flex flex-column sign_section">
         <h2 class="tittle">Sign Up</h2>
         <hr class="line">
+        <form class="d-flex flex-column form" [formGroup]="registerForm">
+
             <label  class="label_form" for="name">Name</label>
-            <input  [(ngModel)]="name" class="input_form" type="text" name="name" id="name">
+            <input  formControlName="name"  class="input_form" type="text" required>
+
             <label  class="label_form" for="lastname">Lastname</label>
-            <input   [(ngModel)]="lastname" class="input_form" type="text" name="lastname" id="lastname">
+            <input   formControlName="lastname"  class="input_form" type="text" required>
+
             <label  class="label_form" for="email">Email Addres</label>
-            <input  [(ngModel)]="email" class="input_form" type="email" name="email" id="email">
+            <input   formControlName="email"  class="input_form" type="email"  required>
+
             <label class="label_form mt-3" for="password">Password</label>
-            <input [(ngModel)]="password" class="input_form" type="password" name="password" id="password">
+            <input formControlName="password"  class="input_form" type="password"  required>
+
             <label class="label_form mt-3" for="password">Address</label>
-            <input [(ngModel)]="address"class="input_form" type="address" name="address" id="address">
+            <input  formControlName="address"  class="input_form" type="address"  required>
+
+            <!--Message Error-->
+            <span *ngIf="incomplete==true" class="error">{{message}}</span>
             <input (click)="createUser()" class="input_button" type="submit" value="Create Account">
+        </form>
     </div>
 </div>

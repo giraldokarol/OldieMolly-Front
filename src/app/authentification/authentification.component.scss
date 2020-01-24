@@ -55,11 +55,11 @@
 }
 
 .sign_section{
-    margin-top: 150px;
+    margin-top: 120px;
     margin-right: 300px;
     margin-bottom: 30px;
 
-    
+
         .tittle{
             color:$dark_gray;
             font-weight: bold;
@@ -71,6 +71,8 @@
             width: 100%;
         }
 
+    .form{
+        
         .label_form{
             font-weight: bold;
             font-size: 12px;
@@ -99,6 +101,16 @@
                 background-color:#d33c39;
             }
         }
+
+        .error{
+            background-color: $red_color;
+            font-size: 12px;
+            color:white;
+            padding: 5px 10px 5px 10px;
+            text-align: center;
+            margin-top:10px;
+        }
+    }
     
 }
 
