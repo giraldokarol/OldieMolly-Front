@@ -11,7 +11,8 @@ import { UserService } from '../services/user.service';
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.scss']
 })
-export class ProfilComponent implements OnInit{
+export class ProfilComponent implements OnInit, DoCheck{
+ 
   
   paramRoute:string;
   message:string='';
@@ -20,6 +21,9 @@ export class ProfilComponent implements OnInit{
   categories: Category[];
   nameCategory : string='';
   idCategory :number;
+
+  //Show My Products
+  myProd:boolean=false;
  
   //Service Product and Model
   products: Product[];
@@ -29,6 +33,7 @@ export class ProfilComponent implements OnInit{
                 private user :UserService) { 
 
                 this.paramRoute=route.snapshot.params['id'];
+                //Get Actual Link
                 this.message= this.router.url;
 
   }
@@ -46,12 +51,19 @@ export class ProfilComponent implements OnInit{
     });  
   }
 
+  ngDoCheck(){
+    //Get Actual Link
+    this.paramRoute=this.route.snapshot.params['id'];
+    this.message= this.router.url;
+   
+  }
+
+
 
   clickCategory(cat: string){
     this.nameCategory=cat;
     if(cat == this.categories[0].nameCategory){
         this.idCategory = this.categories[0].idCategory;
-        console.log(this.message);
         this.router.navigate([this.message+'/'+this.categories[0].nameCategory]);
     } else if(cat == this.categories[1].nameCategory){
         this.idCategory = this.categories[1].idCategory;
@@ -65,6 +77,10 @@ export class ProfilComponent implements OnInit{
     }
    this.showProductsCategory(this.idCategory);
    console.log(this.idCategory);
+  }
+
+  clickMyProd(){
+    this.myProd=true;
   }
 
   showProductsCategory(id: number){

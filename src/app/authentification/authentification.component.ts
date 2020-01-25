@@ -26,7 +26,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   incomplete:boolean=false;
   noLogged:boolean=false;
   message:string;
-  active:boolean=false;
+  
 
   //Form Validator
   registerForm : FormGroup; //SignUp
@@ -35,6 +35,9 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   //Object User
   user: User;
   users:User[];
+
+  //UserName display 
+  nickname:string='';
 
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
@@ -128,13 +131,14 @@ export class AuthentificationComponent implements OnInit, DoCheck {
             "email" : this.loginForm.controls['email'].value,
             "password" : this.loginForm.controls['password'].value
           };
+          this.getUserName(this.loginForm.controls['email'].value);
           console.log(this.user);
           this.u.loginUser(this.user).subscribe(
             data =>{
               if(data.jwt!=='' && data.message.includes('Succefull')){
                 this.noLogged=true;
                 this.message = data.message +"We are just verifying.";
-                this.router.navigate(['/profile/'+this.loginForm.controls['email'].value]);
+                this.router.navigate(['/profile/'+ this.nickname]);
                 //Create cookies
                 this.cookie.set("email", this.loginForm.controls['email'].value);
               } 
@@ -155,6 +159,13 @@ export class AuthentificationComponent implements OnInit, DoCheck {
       this.noLogged=true;
       this.message = 'Incompleted Information';
     }
+  }
+
+  getUserName(email:string){
+    this.u.getUserByEmail(email).subscribe( userName => {
+      this.user = userName;
+      this.nickname = userName.userName;
+    });
   }
 
 

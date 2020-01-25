@@ -27,6 +27,10 @@ export class UserService  {
     return this.http.get<User[]>(this.proxyurl+this.baseUrl+'/read_all.php');
   }
 
+  getUserByEmail(email:string):Observable<User>{
+    return this.http.get<User>(this.proxyurl+this.baseUrl+'/read_user.php?email='+email);
+  }
+
   getProductUser(id: number):Observable<Product[]>{
     return this.http.get<Product[]>(this.proxyurl+this.baseUrl+'/read_one.php?idUser='+id);
   }
