@@ -5,6 +5,7 @@ import { User } from '../entities/user.model';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 
@@ -18,13 +19,15 @@ export class AuthentificationComponent implements OnInit, DoCheck {
 
   param:string;
   
-  //Variables Form
+  //Variables Form Sign
   name:string;
   incomplete:boolean=false;
+  noLogged:boolean=false;
   message:string;
 
   //Form Validator
-  registerForm : FormGroup;
+  registerForm : FormGroup; //SignUp
+  loginForm : FormGroup; //Login
 
   //Object User
   user: User;
@@ -42,6 +45,12 @@ export class AuthentificationComponent implements OnInit, DoCheck {
           email : ['', [Validators.required, Validators.email]],
           password: ['', [Validators.required, Validators.minLength(5)]],
           address: ['', Validators.required]
+    });
+
+    //Login Form
+    this.loginForm = this.formBuilder.group({
+      email : ['', [Validators.required, Validators.email]],
+      password : ['', [Validators.required, Validators.minLength(5)]]
     });
   }
 
@@ -85,6 +94,41 @@ export class AuthentificationComponent implements OnInit, DoCheck {
     }else{
       this.incomplete=true;
        this.message="You have to fill in all the fields."     
+    }
+  }
+
+
+  login(){
+    if(this.loginForm.controls['email'].value!=='' && this.loginForm.controls['password'].value!==''){
+        if(this.loginForm.valid){
+          this.user = {
+            "email" : this.loginForm.controls['email'].value,
+            "password" : this.loginForm.controls['password'].value
+          };
+          console.log(this.user);
+          this.u.loginUser(this.user).subscribe(
+            data =>{
+              if(data.jwt!=='' && data.message.includes('Succefull')){
+                this.noLogged=true;
+                this.message = data.message +"We are just verifying.";
+                this.router.navigate(['/profile/'+this.loginForm.controls['email'].value]);
+              } 
+            },
+            (err:HttpErrorResponse) => {
+              if(err.status===401){
+                this.noLogged=true;
+                this.message = 'This account does not exist.' + err.error.message;
+                console.log(err.error.message);
+              }              
+            }
+          );
+        }else if(!this.loginForm.controls['email'].valid){
+          this.noLogged=true;
+          this.message='Verify your email.'
+        }
+    } else{
+      this.noLogged=true;
+      this.message = 'Incompleted Information';
     }
   }
 

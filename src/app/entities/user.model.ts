@@ -5,4 +5,6 @@ export class User{
     public password?:string;
     public userLastname?:string;
     public address?:string;
+    public jwt?:string;
+    public message?:string;
 }

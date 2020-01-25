@@ -24,33 +24,46 @@
         width: 100%;
     }
 
-    .label_form{
-        font-weight: bold;
-        font-size: 12px;
-    }
-
-    .input_form{
-        width: 150%;
-        background-color: $ligth_gray;
-        border-radius: 5px;
-        border:none;
-       
-    }
-
-    .input_button{
-        background-color: $red_color;
-        transition: background-color 0.5s ease;
-        border:none;
-        font-weight: bold;
-        font-size:13px;
-        color:white;
-        border-radius: 8px;
-        margin-top:40px;
-        padding: 15px 40px 15px 40px;
-
-        &:hover{
-            background-color:#d33c39;
+    .form{
+        .label_form{
+            font-weight: bold;
+            font-size: 12px;
         }
+
+        .input_form{
+            width: 150%;
+            background-color: $ligth_gray;
+            border-radius: 5px;
+            border:none;
+        
+        }
+
+        .input_button{
+            background-color: $red_color;
+            transition: background-color 0.5s ease;
+            border:none;
+            font-weight: bold;
+            font-size:13px;
+            color:white;
+            border-radius: 8px;
+            margin-top:40px;
+            padding: 15px 40px 15px 40px;
+
+            &:hover{
+                background-color:#d33c39;
+            }
+        }
+
+        .error{
+            background-color: $red_color;
+            font-size: 10px;
+            font-weight: bold;
+            color:white;
+            padding: 5px 10px 5px 10px;
+            text-align: center;
+            margin-top:10px;
+        }
+
     }
 }
 
@@ -104,7 +117,8 @@
 
         .error{
             background-color: $red_color;
-            font-size: 12px;
+            font-size: 10px;
+            font-weight: bold;
             color:white;
             padding: 5px 10px 5px 10px;
             text-align: center;

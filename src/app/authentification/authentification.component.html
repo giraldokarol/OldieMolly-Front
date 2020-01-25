@@ -1,14 +1,25 @@
+
+<!--Login-->
 <div  class="d-flex justify-content-between">
     <div class="banner_image"></div>
     <div *ngIf="param==='login'" class=" d-flex flex-column login_section">
         <h2 class="tittle">Login</h2>
         <hr class="line">
-        <label  class="label_form" for="email">Email Addres</label>
-        <input class="input_form" type="text" name="email" id="email">
-        <label class="label_form mt-3" for="password">Password</label>
-        <input class="input_form" type="password" name="password" id="password">
-        <input class="input_button" type="submit" value="Welcome">
+        <form class="d-flex flex-column form" [formGroup]="loginForm">
+
+            <label  class="label_form" for="email">Email Addres</label>
+            <input formControlName="email" class="input_form" type="text">
+
+            <label class="label_form mt-3" for="password">Password</label>
+            <input  formControlName="password" class="input_form" type="password">
+
+            <!--Message Error-->
+            <span class="error" *ngIf="noLogged==true">{{message}}</span>
+            <input (click)="login()" class="input_button" type="submit" value="Welcome">
+        </form>
     </div>
+
+    <!--Sign Up-->
     <div *ngIf="param==='signup'" class=" d-flex flex-column sign_section">
         <h2 class="tittle">Sign Up</h2>
         <hr class="line">
