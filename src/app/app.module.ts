@@ -9,6 +9,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -28,7 +29,11 @@ import { CookieService } from 'ngx-cookie-service';
     ReactiveFormsModule
     
   ],
-  providers: [ CookieService ],
+  providers: [ 
+    CookieService,
+    AuthGuard
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

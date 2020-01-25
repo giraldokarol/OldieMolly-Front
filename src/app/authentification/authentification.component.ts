@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from '../services/auth/auth.service';
 
 
 
@@ -33,7 +34,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   user: User;
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
-                private formBuilder :FormBuilder, private cookie: CookieService ) { 
+                private formBuilder :FormBuilder, private cookie: CookieService, public auth: AuthService) { 
     this.param=this.route.snapshot.params['id'];
     }
 
@@ -112,6 +113,8 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 this.noLogged=true;
                 this.message = data.message +"We are just verifying.";
                 this.router.navigate(['/profile/'+this.loginForm.controls['email'].value]);
+                //Create cookies
+                this.cookie.set("email", this.loginForm.controls['email'].value);
               } 
             },
             (err:HttpErrorResponse) => {
