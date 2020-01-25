@@ -4,6 +4,7 @@ import { Category } from '../entities/category.model';
 import { ServiceGetCategoryService } from '../services/service-get-category.service';
 import { ServiceProductService } from '../services/service-product.service';
 import { Product } from '../entities/product.model';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-profil',
@@ -24,7 +25,8 @@ export class ProfilComponent implements OnInit{
   products: Product[];
 
   constructor(private route : ActivatedRoute, private category : ServiceGetCategoryService,
-                private product :ServiceProductService, private router : Router) { 
+                private product :ServiceProductService, private router : Router, 
+                private user :UserService) { 
 
                 this.paramRoute=route.snapshot.params['id'];
                 this.message= this.router.url;
@@ -61,7 +63,7 @@ export class ProfilComponent implements OnInit{
         this.idCategory = this.categories[3].idCategory;
         this.router.navigate([this.message+'/'+this.categories[3].nameCategory]);
     }
-    this.showProductsCategory(this.idCategory);
+   this.showProductsCategory(this.idCategory);
    console.log(this.idCategory);
   }
 
@@ -70,5 +72,14 @@ export class ProfilComponent implements OnInit{
       this.products = products;
     });
   }
+
+  showProductsUser(id: number){
+    this.user.getProductUser(id).subscribe( products => {
+      this.products=products;
+      console.log(products);
+    });
+  }
+
+
 
 }
