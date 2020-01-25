@@ -8,7 +8,7 @@ import { Product } from '../entities/product.model';
   providedIn: 'root'
 })
 export class ServiceGetCategoryService {
-  
+
   private baseUrl:string="https://oldie-molly.herokuapp.com/category";
   
   constructor(private http: HttpClient) { }

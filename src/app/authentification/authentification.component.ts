@@ -1,12 +1,13 @@
 import { Component, OnInit, DoCheck, Input } from '@angular/core';
 import { AppComponent } from '../app.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, CanActivate } from '@angular/router';
 import { User } from '../entities/user.model';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AuthService } from '../services/auth/auth.service';
+import { Observable } from 'rxjs';
+
 
 
 
@@ -25,6 +26,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   incomplete:boolean=false;
   noLogged:boolean=false;
   message:string;
+  active:boolean=false;
 
   //Form Validator
   registerForm : FormGroup; //SignUp
@@ -34,7 +36,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   user: User;
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
-                private formBuilder :FormBuilder, private cookie: CookieService, public auth: AuthService) { 
+                private formBuilder :FormBuilder, private cookie: CookieService) { 
     this.param=this.route.snapshot.params['id'];
     }
 
@@ -59,8 +61,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
     this.param=this.route.snapshot.params['id'];
   } 
 
-  
-
+ 
   createUser(){
     if(this.registerForm.touched && this.registerForm.value.name!==''&& this.registerForm.value.lastname!==''
                   && this.registerForm.value.email!=='' && this.registerForm.value.password!=='' &&
@@ -111,6 +112,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
             data =>{
               if(data.jwt!=='' && data.message.includes('Succefull')){
                 this.noLogged=true;
+                this.active=true;
                 this.message = data.message +"We are just verifying.";
                 this.router.navigate(['/profile/'+this.loginForm.controls['email'].value]);
                 //Create cookies
@@ -134,6 +136,8 @@ export class AuthentificationComponent implements OnInit, DoCheck {
       this.message = 'Incompleted Information';
     }
   }
+
+
 
 
 }

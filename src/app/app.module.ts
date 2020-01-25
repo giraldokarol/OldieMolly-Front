@@ -9,7 +9,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CookieService } from 'ngx-cookie-service';
-import { AuthGuard } from './guards/auth.guard';
+
 
 
 
@@ -30,8 +30,7 @@ import { AuthGuard } from './guards/auth.guard';
     
   ],
   providers: [ 
-    CookieService,
-    AuthGuard
+    CookieService
   
   ],
   bootstrap: [AppComponent]

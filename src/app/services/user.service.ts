@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../entities/user.model';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService  {
   proxyurl = "https://cors-anywhere.herokuapp.com/";
   baseUrl:string="https://oldie-molly.herokuapp.com/user";
 
@@ -20,6 +21,7 @@ export class UserService {
   loginUser(user: User):Observable<User>{
     return this.http.post<User>(this.proxyurl+this.baseUrl+'/login.php', user); 
   }
+
 
 
 
