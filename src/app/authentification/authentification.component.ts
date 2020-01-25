@@ -34,6 +34,8 @@ export class AuthentificationComponent implements OnInit, DoCheck {
 
   //Object User
   user: User;
+  users:User[];
+
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
                 private formBuilder :FormBuilder, private cookie: CookieService) { 
@@ -55,6 +57,13 @@ export class AuthentificationComponent implements OnInit, DoCheck {
       email : ['', [Validators.required, Validators.email]],
       password : ['', [Validators.required, Validators.minLength(5)]]
     });
+
+    //Get all users for know if email exists.
+    this.u.getAllUsers().subscribe(users =>{
+      this.users = users;
+      console.log(users);
+    });
+
   }
 
   ngDoCheck() {
@@ -62,10 +71,19 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   } 
 
  
+  validateEmailExist(){
+    for(let i = 0; i<this.users.length; i++){
+        if(this.users[i].email!==this.registerForm.value.email){
+          return false;
+        }
+    }
+    return true;
+  }
+ 
   createUser(){
     if(this.registerForm.touched && this.registerForm.value.name!==''&& this.registerForm.value.lastname!==''
                   && this.registerForm.value.email!=='' && this.registerForm.value.password!=='' &&
-                  this.registerForm.value.address!==''){
+                  this.registerForm.value.address!=='' && this.validateEmailExist()){
               if(this.registerForm.valid){
                  this.user = {
                    "userName" : this.registerForm.value.name,
@@ -93,6 +111,9 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 this.message="Your email is invalid";
                 this.registerForm.value.email='';
               }
+    }else if(!this.validateEmailExist()){
+      this.incomplete=true;
+      this.message ="Email alredy exists."
     }else{
       this.incomplete=true;
        this.message="You have to fill in all the fields."     
@@ -112,7 +133,6 @@ export class AuthentificationComponent implements OnInit, DoCheck {
             data =>{
               if(data.jwt!=='' && data.message.includes('Succefull')){
                 this.noLogged=true;
-                this.active=true;
                 this.message = data.message +"We are just verifying.";
                 this.router.navigate(['/profile/'+this.loginForm.controls['email'].value]);
                 //Create cookies
