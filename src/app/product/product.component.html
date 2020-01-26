@@ -36,7 +36,7 @@
         <div>
             <span> <b>Quantity : </b> {{pro.quantity}} </span>
             <p class="description mb-4">{{pro.description}}</p>
-            <a class="button">Buy It</a>
+            <a *ngIf="pro.User_idUser!==us.idUser" class="button">Buy It</a>
         </div>
     </div>
 

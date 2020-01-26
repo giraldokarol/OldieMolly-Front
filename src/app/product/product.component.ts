@@ -1,10 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ɵConsole } from '@angular/core';
 import { ServiceProductService } from '../services/service-product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../entities/product.model';
 import { ServiceGetCategoryService } from '../services/service-get-category.service';
 import { Category } from '../entities/category.model';
 import { CookieService } from 'ngx-cookie-service';
+import { UserService } from '../services/user.service';
+import { User } from '../entities/user.model';
 
 @Component({
   selector: 'app-product',
@@ -19,10 +21,11 @@ export class ProductComponent implements OnInit {
 
   pro: Product;
   category :Category[];
+  us: User;
 
   constructor(private product : ServiceProductService, private route : ActivatedRoute,
               private categories : ServiceGetCategoryService, private cookie : CookieService,
-              private router: Router) {
+              private router: Router, private user: UserService) {
               this.param=route.snapshot.params['id'];
    }
 
@@ -32,15 +35,15 @@ export class ProductComponent implements OnInit {
     this.product.getProduct(id).subscribe(pro =>{
       this.pro=pro;
     });
-
-    //Get Category Name
-    this.categories.getAllCategories().subscribe( category => {
-      this.category=category;
-    }); 
-    
-    //Get cookie name
+   
+    //Get cookie name and email
     this.nameProfile=this.cookie.get('name');
+    let tmpEmail = this.cookie.get('email');
 
+    //Current User Information
+    this.user.getUserByEmail(tmpEmail).subscribe(us =>{
+      this.us=us;
+    });
 }
 
 clickBack(){
