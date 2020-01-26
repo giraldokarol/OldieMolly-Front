@@ -1,16 +1,97 @@
-.product{
-    .photo_section{
-        .big_photo{
+@import "src/styles.scss";
 
+
+.back{
+    margin-top:100px ;
+
+    .img_icon{
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .text{
+        color:$medium_gray;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+}
+
+.product{
+   margin-bottom:23px;
+
+    .photo_section{
+        margin-top:50px;
+        margin-right: 50px;
+        .big_photo{
+            width: 400px;
+            height: 400px;
+            margin-left: 20px;
+            box-shadow: 5px 9px 18px rgba(236, 236, 236, 0.7);
+        }
+        .small_photos{
+
+            .photo1{
+                width: 100px;
+                box-shadow: 5px 4px 18px rgba(236, 236, 236, 0.7);
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .information{
+        margin-top:50px;
+
+        .tittle{
+            padding: 0;
+            margin: 0;
+            color:$dark_gray;
+            font-weight: bold;
+            font-size: 25px;
         }
 
-        .small_photos{
-            .photo1{
+        .type{
+            background-color:$red_color;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            align-self: center;
+            color:white;
+            font-weight: bold;
+            font-size:12px;
+        }
 
-            }
+        .category{
+            color:$yellow_color;
+            font-weight: bold;
+            font-size: 12px;
+        }
 
-            .photo2{
+        .price{
+            color:$red_color;
+            font-weight: bold;
+            font-size: 35px;
+        }
 
+        .description{
+            font-size: 15px;
+            width: 80%;
+        }
+
+        .button{
+            color:white;
+            margin-top:50px;
+            background-color: $red_color;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+            padding: 10px 30px 10px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+
+            &:hover{
+                background-color: #d33c39;
             }
         }
     }

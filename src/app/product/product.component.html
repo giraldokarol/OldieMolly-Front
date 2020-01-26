@@ -1,33 +1,52 @@
-<div class="container d-flex justify-content-center product">   
+<div class="container d-flex">
+    <div class="back">
+        <a (click)="clickBack()" class="img_icon"><img src="assets/back_icon.png" alt="Icon Back"></a>
+        <a (click)="clickBack()"><span class="text">Back</span></a>
+    </div>  
+</div>
+
+<div class="container d-flex justify-content-center product"> 
     <div class="d-flex justify-content-center photo_section">
-        <div class="big_photo">
-            <img class="img-fluid" src="" alt="">
-        </div>
+    
         <div class="d-flex flex-column align-items-center small_photos">
             <div class="photo1">
-                <img src="" alt="">
+                <img class="img-fluid" src="../../assets/products_images/{{pro.image2}}" alt="Image Small Format Product">
             </div>
-            <div class="photo2">
-                <img src="" alt="">
+            <div class="photo1">
+                <img class="img-fluid" src="../../assets/products_images/{{pro.image3}}" alt="Image Small Format Product">
             </div>
+        </div>
+
+        <div class="big_photo d-flex justify-content-center">
+                <img class="img-fluid" src="../../assets/products_images/{{pro.image}}" alt="Image Product Big Format">
         </div>
     </div>
 
     <div class="d-flex flex-column information">
-        <div class="d-flex justify-content-center">
-            <h2>Nombre del Porducto</h2>
-            <span>Tipo de producto</span>
+        <div class="d-flex justify-content-between">
+            <h2 class="tittle">{{pro.prodName}}</h2>
+            <span class="type">{{pro.type}}</span>
+        </div>
+        <div class="mt-0 mb-5">
+            <span class="mt-0 category">Category</span>
+        </div>
+        <div class="mb-5">
+            <span class="price">{{pro.price}}€</span>
         </div>
         <div>
-            <span>Categoria</span>
-        </div>
-        <div>
-            <span>Precio</span>
-        </div>
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam vero vel praesentium libero dolorum consectetur consequuntur iste labore, 
-                adipisci ut autem error ducimus eaque molestias, soluta a asperiores repudiandae officia.</p>
-            <a href="">Buy It</a>
+            <span> <b>Quantity : </b> {{pro.quantity}} </span>
+            <p class="description mb-4">{{pro.description}}</p>
+            <a class="button">Buy It</a>
         </div>
     </div>
+
+
 </div>
+
+<!--Footer-->
+<footer>
+        <div class="d-flex justify-content-between">
+            <span class="text_owner">Create by Karol Giraldo  2019-2020</span>
+            <img class="logo_footer" src="assets/logo.png" alt="Logo Oldie Molly">
+        </div>
+</footer>
