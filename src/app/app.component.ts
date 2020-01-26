@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, DoCheck } from '@angular/core';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import { EventEmitter } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit, DoCheck {
   username:string='';
   message:string='';
   
-  constructor(private router : Router, private location : Location){
+  constructor(private router : Router, private location : Location, private cookie : CookieService){
     //console.log("HOLA MUNDO");
     if(this.router.url.includes('profile/')){
       this.message='login';
@@ -36,6 +37,12 @@ export class AppComponent implements OnInit, DoCheck {
         }
     });
 
+  }
+
+  logout(){
+    this.cookie.delete('email');
+    this.cookie.delete('name');
+    this.cookie.deleteAll;
   }
   
 

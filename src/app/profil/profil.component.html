@@ -24,7 +24,7 @@
 </div>
 
 <!--Category Content-->
-<div *ngIf="nameCategory!=''" class="container category_content">
+<div *ngIf="nameCategory!=='' && nameCategory!=='My Products'" class="container category_content">
     <div>
         <img class="img-fluid mb-5" src="assets/banner_category.png" alt="Photo Little Gils with Ballons / Banner Category">
     </div>
@@ -41,7 +41,7 @@
 </div>
 
 <!--My Producs Content-->
-<div *ngIf="myProd==true" class="container myproduct_content">
+<div *ngIf="nameCategory==='My Products'" class="container myproduct_content">
         <div>
             <img class="img-fluid mb-5" src="assets/banner_products.png" alt="Photo Little Gils Smiling / Banner My Products">
         </div>
@@ -50,12 +50,16 @@
                 <a class="button_sell" href="">Sell Product</a>
         </div>
         <hr class="line">
-        <div class="d-flex justify-content-around flex-wrap mt-4">
+        <div *ngIf="notFound===''"class="d-flex justify-content-around flex-wrap mt-4">
                 <ng-container  *ngFor="let product of products">
                     <app-product-card [product]="product"></app-product-card>
                 </ng-container>
         </div>
-    </div>
+
+        <div *ngIf="notFound!==''" class="d-flex justify-content-center">
+            <img class ="img-fluid" src="assets/products_warning.png" alt="Not Found Illustration">
+        </div>
+</div>
 
 <!--Footer-->
 <footer>

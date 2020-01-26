@@ -18,8 +18,8 @@ const routes: Routes = [
     component : ProfilComponent,
   },
   {
-    path: 'profile/:id/:category',
-    component : ProfilComponent,
+    path: '**',
+    redirectTo: ''
   }
 ];
 

@@ -64,7 +64,6 @@ export class AuthentificationComponent implements OnInit, DoCheck {
     //Get all users for know if email exists.
     this.u.getAllUsers().subscribe(users =>{
       this.users = users;
-      console.log(users);
     });
 
   }
@@ -132,7 +131,6 @@ export class AuthentificationComponent implements OnInit, DoCheck {
             "password" : this.loginForm.controls['password'].value
           };
           this.getUserName(this.loginForm.controls['email'].value);
-          console.log(this.user);
           this.u.loginUser(this.user).subscribe(
             data =>{
               if(data.jwt!=='' && data.message.includes('Succefull')){
