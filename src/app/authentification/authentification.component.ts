@@ -38,6 +38,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
 
   //UserName display 
   nickname:string='';
+  nameUser:string='';
 
   
   constructor(private router : Router, private route : ActivatedRoute, private u : UserService,
@@ -139,6 +140,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 this.router.navigate(['/profile/'+ this.nickname]);
                 //Create cookies
                 this.cookie.set("email", this.loginForm.controls['email'].value);
+                this.cookie.set("name", this.nameUser);
               } 
             },
             (err:HttpErrorResponse) => {
@@ -163,6 +165,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
     this.u.getUserByEmail(email).subscribe( userName => {
       this.user = userName;
       this.nickname = userName.userName;
+      this.nameUser = userName.userName;
     });
   }
 

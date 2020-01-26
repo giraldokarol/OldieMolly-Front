@@ -34,8 +34,8 @@
     </div>
     <hr class="line">
     <div class="d-flex justify-content-around flex-wrap mt-4">
-            <ng-container  *ngFor="let product of products">
-                <app-product-card (click)="details()" [product]="product"></app-product-card>
+            <ng-container  *ngFor="let product of products; let index = index">
+                <app-product-card [product]="product" (click)="details(index)"></app-product-card>
             </ng-container>
     </div>
 </div>
@@ -51,8 +51,8 @@
         </div>
         <hr class="line">
         <div *ngIf="notFound===''"class="d-flex justify-content-around flex-wrap mt-4">
-                <ng-container  *ngFor="let product of products">
-                    <app-product-card (click)="details()" [product]="product"></app-product-card>
+                <ng-container  *ngFor="let product of products; let index=index">
+                    <app-product-card (click)="details(index)" [product]="product"></app-product-card>
                 </ng-container>
         </div>
 
