@@ -19,7 +19,7 @@ export class ProfilComponent implements OnInit, DoCheck{
   
   paramRoute:string;
   message:string='';
-  
+
   notFound:string='';
 
   //Cookie
@@ -116,6 +116,11 @@ export class ProfilComponent implements OnInit, DoCheck{
         this.notFound='Not';
       }
     });
+  }
+
+  //Link for show Details Product - Another component
+  details(index){
+    this.router.navigate(['/product/'+this.products[index].idProduct]);
   }
 
 

@@ -9,6 +9,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -19,7 +20,8 @@ import { CookieService } from 'ngx-cookie-service';
     HomeComponent,
     AuthentificationComponent,
     ProfilComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

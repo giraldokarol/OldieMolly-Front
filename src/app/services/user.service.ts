@@ -35,7 +35,4 @@ export class UserService  {
     return this.http.get<Product[]>(this.proxyurl+this.baseUrl+'/read_one.php?idUser='+id);
   }
 
-
-
-
 }

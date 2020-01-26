@@ -8,6 +8,7 @@ import { Product } from '../entities/product.model';
 })
 export class ServiceProductService {
   
+  proxyurl = "https://cors-anywhere.herokuapp.com/";
   baseUrl:string="https://oldie-molly.herokuapp.com/product";
 
   constructor(private http: HttpClient) { }
@@ -15,4 +16,9 @@ export class ServiceProductService {
   getAllProducts():Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'/read.php');
   }
+
+  getProduct(id:number):Observable<Product>{
+    return this.http.get<Product>(this.baseUrl+'/read_one.php?idProduct='+id);
+  }
+  
 }
