@@ -74,7 +74,7 @@ createOrder(){
     "nameProd" : this.pro.prodName
   };
   this.orders.createOrder(this.order).subscribe().add(()=>{
-    this.router.navigate(['/myorders']);
+    this.router.navigate(['/myshoppingbag']);
   });
 }
 

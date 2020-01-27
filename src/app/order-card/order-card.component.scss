@@ -40,3 +40,20 @@
     font-weight: bold;
     color:$red_color;
 }
+
+.optional{
+    color:white;
+    align-self: center;
+    margin:auto;
+    background-color: $red_color;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    &:hover{
+        background-color: #d33c39;
+        color:white;
+    }
+}

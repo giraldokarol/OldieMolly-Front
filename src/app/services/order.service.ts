@@ -16,5 +16,9 @@ export class OrderService {
   createOrder(order: Order) :Observable<Order>{
     return this.http.post<Order>(this.proxyurl + this.baseUrl+'/create.php', order);
   }
+
+  readBuyer(email:string) :Observable<Order[]>{
+    return this.http.get<Order[]>(this.proxyurl+this.baseUrl+'/read_buyer.php?buyer='+email);
+  }
   
 }

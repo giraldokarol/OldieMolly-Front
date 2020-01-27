@@ -25,9 +25,11 @@ export class OrderCardComponent implements OnInit {
     }else{
       this.category='Mobility';
     }
-
+      console.log(this.order.nameProd);
+      //console.log(this.cookie.get('email'));
     if(this.order.buyer===this.cookie.get('email')){
       this.showbutton='show';
+      console.log("hola!")
     }
   }
 

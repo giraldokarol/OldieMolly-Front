@@ -16,10 +16,10 @@
         </div>
         <span class="price">{{order.totalPrice}}€</span>
     </div>
-    <div *ngIf="showbutton==='show'" class="optional d-flex">
+    <div *ngIf="showbutton!==''" class="d-flex">
          <div class="divider">
             <hr class="line">
         </div>
-        <a href="">Delete Order</a>
+        <a class="optional">Delete Order</a>
     </div>
 </div>
