@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+
+.banner{
+    margin-top:100px;
+}
+
+.tittle{
+    color:$dark_gray;
+    font-weight: bold;
+    font-size:25px;
+    margin-left:20px;
+}
+
+.line{
+    color: $ligth_gray;
+    border-style: solid;
+    width: 40%;
+    margin-left: 20px;
+}
+
+

@@ -36,6 +36,10 @@ export class AppComponent implements OnInit, DoCheck {
           let tmpUser = this.cookie.get('name');
           this.username=tmpUser;
           this.message="login";
+        }else if(this.location.path().includes('myorders')){
+          let tmpUser =this.cookie.get('name');
+          this.username=tmpUser;
+          this.message="login";
         }else{
           this.message='';
         }

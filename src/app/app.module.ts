@@ -11,6 +11,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { OrderCardComponent } from './order-card/order-card.component';
 
 
 
@@ -23,7 +24,8 @@ import { OrderComponent } from './order/order.component';
     ProfilComponent,
     ProductCardComponent,
     ProductComponent,
-    OrderComponent
+    OrderComponent,
+    OrderCardComponent
   ],
   imports: [
     BrowserModule,

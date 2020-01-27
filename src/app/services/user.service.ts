@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { Product } from '../entities/product.model';
+import { Order } from '../entities/order.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,10 @@ export class UserService  {
 
   getProductUser(id: number):Observable<Product[]>{
     return this.http.get<Product[]>(this.proxyurl+this.baseUrl+'/read_one.php?idUser='+id);
+  }
+
+  getOrderUser(id: number):Observable<Order[]>{
+    return this.http.get<Order[]>(this.proxyurl + this.baseUrl + '/read_order.php?idUser=')
   }
 
 }
