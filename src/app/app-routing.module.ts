@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ProductComponent } from './product/product.component';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path : 'product/:id',
     component : ProductComponent
+  },
+  {
+    path: 'myorders',
+    component : OrderComponent
   },
   {
     path: '**',

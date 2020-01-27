@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductComponent } from './product/product.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -21,7 +22,8 @@ import { ProductComponent } from './product/product.component';
     AuthentificationComponent,
     ProfilComponent,
     ProductCardComponent,
-    ProductComponent
+    ProductComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
