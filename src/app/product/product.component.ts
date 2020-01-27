@@ -70,7 +70,8 @@ createOrder(){
     "User_idUser" : this.pro.User_idUser,
     "Product_idProduct" : this.id,
     "buyer" : this.cookie.get('email'),
-    "idCategory" : this.pro.Category_idCategory
+    "idCategory" : this.pro.Category_idCategory,
+    "nameProd" : this.pro.prodName
   };
   this.orders.createOrder(this.order).subscribe().add(()=>{
     this.router.navigate(['/myorders']);
