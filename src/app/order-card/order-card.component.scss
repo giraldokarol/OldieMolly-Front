@@ -1,0 +1,42 @@
+@import "src/styles.scss";
+.icon{
+    width:90px;
+    align-self: center;
+}
+
+.divider{
+    margin-right:10px;
+    margin-left: 10px;
+    .line{
+        border-left: 1px solid #ccc;
+        margin: 0 10px;
+        height: 80px;
+        align-self: center;
+    }
+}
+
+.name{
+    color:$dark_gray;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.date{
+    color:$medium_gray;
+    font-weight: bold;
+    font-size: 10px; 
+    margin-right: 20px;
+}
+
+.category{
+    color: $yellow_color;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.price{
+    margin-top:10px;
+    font-size:25px;
+    font-weight: bold;
+    color:$red_color;
+}

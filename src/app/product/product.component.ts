@@ -69,7 +69,8 @@ createOrder(){
     "totalPrice" : this.pro.price,
     "User_idUser" : this.pro.User_idUser,
     "Product_idProduct" : this.id,
-    "buyer" : this.cookie.get('email')
+    "buyer" : this.cookie.get('email'),
+    "idCategory" : this.pro.Category_idCategory
   };
   this.orders.createOrder(this.order).subscribe().add(()=>{
     this.router.navigate(['/myorders']);

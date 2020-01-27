@@ -5,4 +5,5 @@ export class Order{
     public User_idUser?:number;
     public Product_idProduct?:number;
     public buyer?: string;
+    public idCategory?:number;
 }
