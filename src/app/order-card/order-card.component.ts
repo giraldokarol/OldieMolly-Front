@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Order } from '../entities/order.model';
 
 @Component({
   selector: 'app-order-card',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-card.component.scss']
 })
 export class OrderCardComponent implements OnInit {
+
+  @Input() order : Order;
 
   constructor() { }
 

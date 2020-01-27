@@ -7,11 +7,14 @@
         <h2 class="tittle">My Orders</h2>
     </div>
     <hr class="line">
-    <div class="d-flex justify-content-between flex-wrap mt-4">
-        <ng-container>
-            <app-order-card></app-order-card>
+    <div *ngIf="notFound===''"class="d-flex justify-content-between flex-wrap mt-4">
+        <ng-container *ngFor="let order of orders">
+            <app-order-card [order]="order"></app-order-card>
         </ng-container>
     </div>
+    <div *ngIf="notFound!==''" class="d-flex justify-content-center">
+            <img class ="notFound img-fluid" src="assets/products_warning.png" alt="Not Found Illustration">
+        </div>
 </div>
 
 <!--Footer-->

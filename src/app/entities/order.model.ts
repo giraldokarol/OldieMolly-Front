@@ -4,4 +4,5 @@ export class Order{
     public date?:string;
     public User_idUser?:number;
     public Product_idProduct?:number;
+    public buyer?: string;
 }

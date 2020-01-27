@@ -68,7 +68,8 @@ createOrder(){
   this.order = {
     "totalPrice" : this.pro.price,
     "User_idUser" : this.pro.User_idUser,
-    "Product_idProduct" : this.id
+    "Product_idProduct" : this.id,
+    "buyer" : this.cookie.get('email')
   };
   this.orders.createOrder(this.order).subscribe().add(()=>{
     this.router.navigate(['/myorders']);
