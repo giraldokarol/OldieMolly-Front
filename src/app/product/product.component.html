@@ -1,9 +1,9 @@
 <div class="container d-flex">
-    <div class="back">
-        <a (click)="clickBack()" class="img_icon"><img src="assets/back_icon.png" alt="Icon Back"></a>
-        <a (click)="clickBack()"><span class="text">Back</span></a>
-    </div>  
-</div>
+        <div class="back">
+            <a (click)="clickBack()" class="img_icon"><img src="assets/back_icon.png" alt="Icon Back"></a>
+            <a (click)="clickBack()"><span class="text">Back</span></a>
+        </div>  
+    </div>
 
 <div class="container d-flex justify-content-center product"> 
     <div class="d-flex justify-content-center photo_section">
@@ -28,7 +28,7 @@
             <span class="type">{{pro.type}}</span>
         </div>
         <div class="mt-0 mb-5">
-            <span class="mt-0 category">Category</span>
+            <span class="mt-0 category">{{nameCategory}}</span>
         </div>
         <div class="mb-5">
             <span class="price">{{pro.price}}€</span>
@@ -36,7 +36,7 @@
         <div>
             <span> <b>Quantity : </b> {{pro.quantity}} </span>
             <p class="description mb-4">{{pro.description}}</p>
-            <a *ngIf="pro.User_idUser!==us.idUser" class="button">Buy It</a>
+            <a  *ngIf="pro.User_idUser!==us.idUser" class="button">Buy It</a>
         </div>
     </div>
 

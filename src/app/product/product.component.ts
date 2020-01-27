@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ɵConsole } from '@angular/core';
+import { Component, OnInit, Input, ɵConsole, DoCheck } from '@angular/core';
 import { ServiceProductService } from '../services/service-product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../entities/product.model';
@@ -13,14 +13,15 @@ import { User } from '../entities/user.model';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit{
   
   param:string;
   nameCategory:string;
   nameProfile:string;
+  id:number;
 
   pro: Product;
-  category :Category[];
+  category :Category;
   us: User;
 
   constructor(private product : ServiceProductService, private route : ActivatedRoute,
@@ -31,23 +32,34 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     //Get Details Product
+    console.log(this.param);
     let id = parseInt(this.param, 10); // Convert param id String to Number
     this.product.getProduct(id).subscribe(pro =>{
       this.pro=pro;
+      if(pro.Category_idCategory==1){
+        this.nameCategory ='Others';
+      }else if(pro.Category_idCategory==2){
+        this.nameCategory='Clothes';
+      }else if(pro.Category_idCategory==3){
+        this.nameCategory='Bedding';
+      }else{
+        this.nameCategory='Mobility';
+      }
     });
    
-    //Get cookie name and email
+    let tmpEmail=this.cookie.get('email');
     this.nameProfile=this.cookie.get('name');
-    let tmpEmail = this.cookie.get('email');
 
-    //Current User Information
+    //Get user by email
     this.user.getUserByEmail(tmpEmail).subscribe(us =>{
       this.us=us;
-    });
+    });   
+
 }
 
 clickBack(){
   this.router.navigate(['/profile/'+this.nameProfile]);
 }
+
 
 }  

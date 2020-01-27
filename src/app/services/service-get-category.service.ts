@@ -20,5 +20,9 @@ export class ServiceGetCategoryService {
   getProductCategory(id: number):Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+ '/read_one.php?idCategory='+id);
   }
+
+  getCategorybyId(id:number):Observable<Category>{
+    return this.http.get<Category>(this.baseUrl+'read_category.php?idCategory='+id);
+  }
   
 }

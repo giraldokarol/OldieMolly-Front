@@ -20,5 +20,5 @@ export class ServiceProductService {
   getProduct(id:number):Observable<Product>{
     return this.http.get<Product>(this.baseUrl+'/read_one.php?idProduct='+id);
   }
-  
+
 }
