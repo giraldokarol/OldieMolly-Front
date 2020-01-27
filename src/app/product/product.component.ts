@@ -7,6 +7,8 @@ import { Category } from '../entities/category.model';
 import { CookieService } from 'ngx-cookie-service';
 import { UserService } from '../services/user.service';
 import { User } from '../entities/user.model';
+import { OrderService } from '../services/order.service';
+import { Order } from '../entities/order.model';
 
 @Component({
   selector: 'app-product',
@@ -23,18 +25,19 @@ export class ProductComponent implements OnInit{
   pro: Product;
   category :Category;
   us: User;
+  order:Order;
 
   constructor(private product : ServiceProductService, private route : ActivatedRoute,
-              private categories : ServiceGetCategoryService, private cookie : CookieService,
-              private router: Router, private user: UserService) {
+              private cookie : CookieService, private router: Router, private user: UserService,
+              private orders : OrderService) {
               this.param=route.snapshot.params['id'];
    }
 
   ngOnInit() {
     //Get Details Product
     console.log(this.param);
-    let id = parseInt(this.param, 10); // Convert param id String to Number
-    this.product.getProduct(id).subscribe(pro =>{
+    this.id = parseInt(this.param, 10); // Convert param id String to Number
+    this.product.getProduct(this.id).subscribe(pro =>{
       this.pro=pro;
       if(pro.Category_idCategory==1){
         this.nameCategory ='Others';
@@ -59,6 +62,17 @@ export class ProductComponent implements OnInit{
 
 clickBack(){
   this.router.navigate(['/profile/'+this.nameProfile]);
+}
+
+createOrder(){
+  this.order = {
+    "totalPrice" : this.pro.price,
+    "User_idUser" : this.pro.User_idUser,
+    "Product_idProduct" : this.id
+  };
+  this.orders.createOrder(this.order).subscribe().add(()=>{
+    this.router.navigate(['/myorders']);
+  });
 }
 
 
