@@ -5,6 +5,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { ProfilComponent } from './profil/profil.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { ShoppingBagComponent } from './shopping-bag/shopping-bag.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'myorders',
     component : OrderComponent
+  },
+  {
+    path: 'myshoppingbag',
+    component: ShoppingBagComponent
   },
   {
     path: '**',
