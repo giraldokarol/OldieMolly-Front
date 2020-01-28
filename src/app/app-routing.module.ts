@@ -25,7 +25,7 @@ const routes: Routes = [
     component : ProductComponent
   },
   {
-    path: 'myorders',
+    path: 'mysales',
     component : OrderComponent
   },
   {

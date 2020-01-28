@@ -86,7 +86,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
   createUser(){
     if(this.registerForm.touched && this.registerForm.value.name!==''&& this.registerForm.value.lastname!==''
                   && this.registerForm.value.email!=='' && this.registerForm.value.password!=='' &&
-                  this.registerForm.value.address!=='' && this.validateEmailExist()){
+                  this.registerForm.value.address!=='' && !this.validateEmailExist()){
               if(this.registerForm.valid){
                  this.user = {
                    "userName" : this.registerForm.value.name,
@@ -114,7 +114,7 @@ export class AuthentificationComponent implements OnInit, DoCheck {
                 this.message="Your email is invalid";
                 this.registerForm.value.email='';
               }
-    }else if(!this.validateEmailExist()){
+    }else if(this.validateEmailExist()){
       this.incomplete=true;
       this.message ="Email alredy exists."
     }else{
