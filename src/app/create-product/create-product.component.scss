@@ -62,3 +62,13 @@
 .large{
     width: 120%;
 }
+
+.error{
+    background-color: $red_color;
+    font-size: 10px;
+    font-weight: bold;
+    color:white;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin-top:30px;
+}

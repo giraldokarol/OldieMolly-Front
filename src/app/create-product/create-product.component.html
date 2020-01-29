@@ -4,17 +4,17 @@
         </div>
         <div class="d-flex justify-content-between">
             <h2 class="tittle">Create Product</h2>
-            <a class="button">Create</a>
+            <a (click)="createProduct()"class="button">Create</a>
         </div>
         <hr class="line">
-        <form class="d-flex justify-content-around">
+        <form class="d-flex justify-content-around" [formGroup]="createForm">
             <!--First Column-->
             <div class="d-flex flex-column">
                 <label class="label_form" for="name">Product Name</label>
-                <input class="label_input" type="text">
+                <input  formControlName="name" class="label_input" type="text">
         
                 <label class="label_form" for="description">Description</label>
-                <textarea class="label_input" cols="30" rows="5"></textarea>
+                <textarea formControlName="description" class="label_input" cols="30" rows="5"></textarea>
             </div>
 
 
@@ -24,22 +24,22 @@
                 <div class="d-flex">
                     <div class="d-flex flex-column">
                         <label class="label_form"  for="price">Price</label>
-                        <input class="label_input small" type="number">
+                        <input formControlName="price" class="label_input small" type="number">
                     </div>
                     <!--Type-->
                     <div class="d-flex flex-column">
                         <label class="label_form"  for="Type">Type</label>
-                        <input  class="label_input small" type="text" list="type">
-                        <datalist class="label_input" id="type">
-                            <option value="New">New</option>
-                            <option value="Used">Used</option>
-                        </datalist>
+                        <select formControlName="type" class="label_input category" id="type">
+                            <option  value="">--</option>
+                            <option  value="New">New</option>
+                            <option  value="Used">Used</option>
+                        </select>
                     </div>
                 </div>
 
                 <!--Category-->
                 <label class="label_form"  for="category">Category</label>
-                <select class="label_input category">
+                <select formControlName="category" class="label_input category">
                     <option value="">--</option>
                     <option value="Clothes">Clothes</option>
                     <option value="Bedding">Bedding</option>
@@ -49,22 +49,26 @@
 
                 <!--Quantity-->
                 <label class="label_form"  for="quantity">Quantity</label>
-                <input class="label_input small" type="number">
+                <input formControlName="quantity" class="label_input small" type="number">
             </div>
 
 
                 <!--Third Column-->
             <div class="d-flex flex-column">
                 <label class="label_form"  for="firstImage">Link Image 1</label>
-                <input class="label_input large" type="text">
+                <input formControlName="image1" class="label_input large" type="text" placeholder="Link Web : http...">
     
                 <label class="label_form" for="secondImage">Link Image 2</label>
-                <input class="label_input large" type="text">
+                <input formControlName="image2" class="label_input large" type="text" placeholder="Link Web : http...">
     
                 <label class="label_form" for="thirdImage">Link Image 3</label>
-                <input class="label_input large" type="text">
+                <input formControlName="image3" class="label_input large" type="text" placeholder="Link Web : http...">
             </div>
         </form>
+
+       <div *ngIf="errorMessage!==''" class="error_content mt-3 d-flex justify-content-center">
+           <span class="error">{{errorMessage}}</span>
+       </div>
     </div>
 
 

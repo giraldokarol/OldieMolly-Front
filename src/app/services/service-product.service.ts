@@ -21,4 +21,8 @@ export class ServiceProductService {
     return this.http.get<Product>(this.baseUrl+'/read_one.php?idProduct='+id);
   }
 
+  createProduct(product :Product):Observable<Product>{
+    return this.http.post<Product>(this.proxyurl+this.baseUrl+'/create.php', product);
+  }
+
 }

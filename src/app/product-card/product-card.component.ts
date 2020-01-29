@@ -9,10 +9,17 @@ import { Product } from '../entities/product.model';
 export class ProductCardComponent implements OnInit {
 
   @Input() product :Product;
+
+  image :string;
   
   constructor() { }
 
   ngOnInit() {
+    if(!this.product.image.includes('http')){
+        this.image = 'assets/products_images/'+this.product.image;
+    } else{
+      this.image = this.product.image;
+    }
   }
 
 }

@@ -9,6 +9,7 @@ import { UserService } from '../services/user.service';
 import { User } from '../entities/user.model';
 import { OrderService } from '../services/order.service';
 import { Order } from '../entities/order.model';
+import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 @Component({
   selector: 'app-product',
@@ -21,6 +22,10 @@ export class ProductComponent implements OnInit{
   nameCategory:string;
   nameProfile:string;
   id:number;
+
+  image1:string;
+  image2:string;
+  image3:string;
 
   pro: Product;
   category :Category;
@@ -48,6 +53,17 @@ export class ProductComponent implements OnInit{
       }else{
         this.nameCategory='Mobility';
       }
+
+        //Validation image
+    if(!this.pro.image.includes('http') && !this.pro.image2.includes('http') && !this.pro.image3.includes('http')){
+      this.image1 = '../../assets/products_images/'+this.pro.image;
+      this.image2 ='../../assets/products_images/'+this.pro.image2;
+      this.image3 ='../../assets/products_images/'+this.pro.image3;
+    }else{
+      this.image1 = this.pro.image;
+      this.image2 = this.pro.image2;
+      this.image3 = this.pro.image3;
+    }
     });
    
     let tmpEmail=this.cookie.get('email');
@@ -57,6 +73,8 @@ export class ProductComponent implements OnInit{
     this.user.getUserByEmail(tmpEmail).subscribe(us =>{
       this.us=us;
     });   
+
+  
 
 }
 
