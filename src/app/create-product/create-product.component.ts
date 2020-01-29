@@ -5,7 +5,6 @@ import { UserService } from '../services/user.service';
 import { User } from '../entities/user.model';
 import { ServiceProductService } from '../services/service-product.service';
 import { Product } from '../entities/product.model';
-import { runInThisContext } from 'vm';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,6 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-product.component.html',
   styleUrls: ['./create-product.component.scss']
 })
+
 export class CreateProductComponent implements OnInit {
 
   //Form
