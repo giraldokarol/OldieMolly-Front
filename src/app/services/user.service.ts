@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../entities/user.model';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
+import { Observable} from 'rxjs';
 import { Product } from '../entities/product.model';
 import { Order } from '../entities/order.model';
 

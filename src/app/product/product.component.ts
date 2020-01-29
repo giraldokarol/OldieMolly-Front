@@ -9,7 +9,6 @@ import { UserService } from '../services/user.service';
 import { User } from '../entities/user.model';
 import { OrderService } from '../services/order.service';
 import { Order } from '../entities/order.model';
-import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 @Component({
   selector: 'app-product',
