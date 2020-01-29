@@ -1,1 +1,77 @@
-<p>create-product works!</p>
+<div class="container">
+        <div >
+             <img class="img-fluid banner mb-5" src="assets/banner_newProduct.png" alt="Girl in swimwear/Create Product Banner">
+        </div>
+        <div class="d-flex justify-content-between">
+            <h2 class="tittle">Create Product</h2>
+            <a class="button">Create</a>
+        </div>
+        <hr class="line">
+        <form class="d-flex justify-content-around">
+            <!--First Column-->
+            <div class="d-flex flex-column">
+                <label class="label_form" for="name">Product Name</label>
+                <input class="label_input" type="text">
+        
+                <label class="label_form" for="description">Description</label>
+                <textarea class="label_input" cols="30" rows="5"></textarea>
+            </div>
+
+
+            <!--Second Column-->
+            <div class="d-flex flex-column">
+                <!--Price-->
+                <div class="d-flex">
+                    <div class="d-flex flex-column">
+                        <label class="label_form"  for="price">Price</label>
+                        <input class="label_input small" type="number">
+                    </div>
+                    <!--Type-->
+                    <div class="d-flex flex-column">
+                        <label class="label_form"  for="Type">Type</label>
+                        <input  class="label_input small" type="text" list="type">
+                        <datalist class="label_input" id="type">
+                            <option value="New">New</option>
+                            <option value="Used">Used</option>
+                        </datalist>
+                    </div>
+                </div>
+
+                <!--Category-->
+                <label class="label_form"  for="category">Category</label>
+                <select class="label_input category">
+                    <option value="">--</option>
+                    <option value="Clothes">Clothes</option>
+                    <option value="Bedding">Bedding</option>
+                    <option value="Mobility">Mobility</option>
+                    <option value="Others">Other</option>
+                </select>
+
+                <!--Quantity-->
+                <label class="label_form"  for="quantity">Quantity</label>
+                <input class="label_input small" type="number">
+            </div>
+
+
+                <!--Third Column-->
+            <div class="d-flex flex-column">
+                <label class="label_form"  for="firstImage">Link Image 1</label>
+                <input class="label_input large" type="text">
+    
+                <label class="label_form" for="secondImage">Link Image 2</label>
+                <input class="label_input large" type="text">
+    
+                <label class="label_form" for="thirdImage">Link Image 3</label>
+                <input class="label_input large" type="text">
+            </div>
+        </form>
+    </div>
+
+
+    <!--Footer-->
+<footer>
+        <div class="d-flex justify-content-between">
+            <span class="text_owner">Create by Karol Giraldo  2019-2020</span>
+            <img class="logo_footer" src="assets/logo.png" alt="Logo Oldie Molly">
+        </div>
+</footer>

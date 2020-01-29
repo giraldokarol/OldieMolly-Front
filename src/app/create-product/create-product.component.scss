@@ -1,0 +1,64 @@
+@import "src/styles.scss";
+
+.banner{
+    margin-top:100px;
+}
+
+.tittle{
+    color:$dark_gray;
+    font-weight: bold;
+    font-size:25px;
+    margin-left:20px;
+}
+
+.line{
+    color: $ligth_gray;
+    border-style: solid;
+    width: 40%;
+    margin-left: 20px;
+}
+
+.button{
+    cursor: pointer;
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    font-size:13px;
+    padding: 10px 30px 10px 30px;
+    background-color: $red_color;
+    transition: background-color 0.5s ease;
+    border-radius: 5px;
+    margin-right:20px;
+
+    &:hover{
+        background-color: #d33c39;
+        color: white;
+    }
+}
+
+//Form
+.label_form{
+    font-weight: bold;
+    font-size: 12px;
+    margin-top:10px;
+}
+
+.label_input{
+    width: 100%;
+    background-color: $ligth_gray;
+    border-radius: 5px;
+    border:none;
+}
+
+.category{
+    height: 30px;
+}
+
+.small{
+    width: 60%;
+    height: 30px;
+}
+
+.large{
+    width: 120%;
+}
