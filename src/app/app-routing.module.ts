@@ -7,6 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { ShoppingBagComponent } from './shopping-bag/shopping-bag.component';
 import { BuyComponent } from './buy/buy.component';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'buy',
     component: BuyComponent
+  },
+  {
+    path : 'createproduct',
+    component: CreateProductComponent
   },
   {
     path: '**',

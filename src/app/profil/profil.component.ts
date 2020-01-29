@@ -70,7 +70,6 @@ export class ProfilComponent implements OnInit, DoCheck{
 
   ngDoCheck(){
     //Get Actual Link
-
   }
 
 
@@ -121,6 +120,11 @@ export class ProfilComponent implements OnInit, DoCheck{
   //Link for show Details Product - Product component
   details(index){
     this.router.navigate(['/product/'+this.products[index].idProduct]);
+  }
+
+  //Link for create new Product - createProduct Component
+  create(){
+    this.router.navigate(['/createproduct']);
   }
 
 
