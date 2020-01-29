@@ -45,15 +45,33 @@
     color:white;
     align-self: center;
     margin:auto;
+    cursor: pointer;
     background-color: $red_color;
     transition: background-color 0.5s ease;
-    cursor: pointer;
     padding: 10px 30px 10px 30px;
     border-radius: 5px;
     font-weight: bold;
     font-size: 13px;
     &:hover{
         background-color: #d33c39;
+        color:white;
+    }
+}
+
+.buy{
+    color:white;
+    align-self: center;
+    margin:auto;
+    cursor: pointer;
+    background-color: $yellow_color;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+    padding: 10px 55px 10px 55px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    &:hover{
+        background-color: #eacd9d;
         color:white;
     }
 }

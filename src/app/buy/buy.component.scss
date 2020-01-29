@@ -1,0 +1,42 @@
+@import "src/styles.scss";
+
+.text{
+    margin-top:40px;
+}
+
+.image{
+    margin-top:150px;
+    width: 60%;
+}
+
+.oops{
+    width: 60%;
+}
+
+.tittle{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top:30px;
+}
+
+.description{
+    margin-top:30px;
+    margin-bottom:40px;
+}
+
+.button{
+    width: 40%;
+    color:white;
+    cursor: pointer;
+    background-color: $red_color;
+    transition: background-color 0.5s ease;
+    padding: 10px 30px 10px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: center;
+    &:hover{
+        background-color: #d33c39;
+        color:white;
+    }
+}

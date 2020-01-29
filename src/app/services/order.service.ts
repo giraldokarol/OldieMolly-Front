@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../entities/order.model';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +21,10 @@ export class OrderService {
 
   readBuyer(email:string) :Observable<Order[]>{
     return this.http.get<Order[]>(this.proxyurl+this.baseUrl+'/read_buyer.php?buyer='+email);
+  }
+
+  deleteOrder(order : Order): Observable<Order>{
+    return this.http.post<Order>(this.proxyurl+this.baseUrl+'/delete.php', order);
   }
   
 }

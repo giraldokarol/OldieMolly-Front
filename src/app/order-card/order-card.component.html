@@ -20,6 +20,9 @@
          <div class="divider">
             <hr class="line">
         </div>
-        <a class="optional">Delete Order</a>
+        <div class="d-flex flex-column align-items-center">
+            <a (click)="buy()" class="buy">Buy it</a>
+            <a (click)="clickDeleteSale(order.idOrder)" class="optional">Delete Order</a>
+        </div>
     </div>
 </div>

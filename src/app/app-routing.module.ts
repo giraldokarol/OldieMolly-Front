@@ -6,6 +6,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { ShoppingBagComponent } from './shopping-bag/shopping-bag.component';
+import { BuyComponent } from './buy/buy.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'myshoppingbag',
     component: ShoppingBagComponent
+  },
+  {
+    path: 'buy',
+    component: BuyComponent
   },
   {
     path: '**',

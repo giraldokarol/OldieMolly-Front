@@ -13,6 +13,7 @@ import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { OrderCardComponent } from './order-card/order-card.component';
 import { ShoppingBagComponent } from './shopping-bag/shopping-bag.component';
+import { BuyComponent } from './buy/buy.component';
 
 
 
@@ -27,7 +28,8 @@ import { ShoppingBagComponent } from './shopping-bag/shopping-bag.component';
     ProductComponent,
     OrderComponent,
     OrderCardComponent,
-    ShoppingBagComponent
+    ShoppingBagComponent,
+    BuyComponent
   ],
   imports: [
     BrowserModule,
