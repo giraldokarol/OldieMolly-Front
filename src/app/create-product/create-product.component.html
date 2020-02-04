@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container principal">
         <div >
              <img class="img-fluid banner mb-5" src="assets/banner_newProduct.png" alt="Girl in swimwear/Create Product Banner">
         </div>
@@ -7,7 +7,7 @@
             <a (click)="createProduct()"class="button">Create</a>
         </div>
         <hr class="line">
-        <form class="d-flex justify-content-around" [formGroup]="createForm">
+        <form class="d-flex justify-content-around mb-5" [formGroup]="createForm">
             <!--First Column-->
             <div class="d-flex flex-column">
                 <label class="label_form" for="name">Product Name</label>
